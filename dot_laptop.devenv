@@ -1,0 +1,110 @@
+#!/bin/bash
+
+set -e
+
+# Installing XCode Command Line Tools
+# taken from: https://developer.apple.com/forums/thread/698954
+echo "Checking Command Line Tools for Xcode"
+# Only run if the tools are not installed yet
+# To check that try to print the SDK path
+xcode-select -p &> /dev/null
+if [ $? -ne 0 ]; then
+  echo "Command Line Tools for Xcode not found. Installing from softwareupdate…"
+# This temporary file prompts the 'softwareupdate' utility to list the Command Line Tools
+  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+  PROD=$(softwareupdate -l | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')
+  softwareupdate -i "$PROD" --verbose;
+else
+  echo "Command Line Tools for Xcode have been installed."
+fi
+
+# install brew if not existed
+if ! command -v brew >/dev/null; 
+then
+    echo "Homebrew is not installed. Installing 'brew'..."
+    curl -fsSL \
+        'https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh' >> brew_install.sh
+    chmod +x brew_install.sh
+    ./brew_install.sh
+else
+    echo "Homebrew is already installed..."
+fi
+
+# remove brew_install if existed
+if [[ -f "brew_install.sh" ]];
+then
+    echo "Removing brew_install.sh..."
+    rm -rf brew_install.sh
+else
+    echo "brew_install does not exist. Proceed..."
+fi
+
+# installing packer.nvim
+echo "Installing Packer NVIM..."
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# chezmoi
+echo "Installing chezmoi..."
+brew install chezmoi
+if [ ! -f "$HOME/.config/chezmoi/chezmoi.toml" ]; then
+  echo "Applying chezmoi ..."
+  chezmoi init --apply --verbose https://github.com/yuhnart/dotfiles.git
+  chmod 0600 "$HOME/.config/chezmoi/chezmoi.toml"
+fi
+
+# brew apps
+if [ -f "$HOME/Brewfile.local" ]; then
+  echo "Installing tools and apps from Brewfile.local ..."
+  if brew bundle --file="$HOME/Brewfile"; then
+    echo "All items in Brewfile.local were installed successfully."
+  else
+    echo "Some items in Brewfile.local were not installed successfully."
+  fi
+fi
+
+# re-source terminal
+source ~/.zshrc
+
+# setup packer in headless
+echo "Setting up Packer in Headless mode ..."
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+# re-source terminal
+source ~/.zshrc
+
+# TODO node
+
+# enable corepack
+corepack enable
+corepack prepare yarn@stable --activate
+corepack prepare pnpm@latest --activate
+
+# oh_my_zsh
+if ! command -v ohmyzsh >/dev/null;
+then
+    echo "Installing Oh My Zsh..."
+    curl -fsSL \
+        'https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh' >> ohmyzsh_install.sh
+    chmod +x ohmyzsh_install.sh
+    ./ohmyzsh_install.sh "" --unattended --keep-zshrc
+fi
+
+# remove ohmyzsh_install if existed
+if [[ -f "ohmyzsh_install.sh" ]];
+then
+    echo "Removing ohmyzsh_install.sh..."
+    rm -rf ohmyzsh_install.sh
+else
+    echo "ohmyzsh_install does not exist. Proceed..."
+fi
+
+# p9k
+echo "Installing powerlevel10k"
+git clone --depth=0 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
