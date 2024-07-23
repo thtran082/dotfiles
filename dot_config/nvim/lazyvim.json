@@ -1,10 +1,9 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.editor.navic",
-    "lazyvim.plugins.extras.lsp.none-ls"
+    "lazyvim.plugins.extras.lang.angular"
   ],
   "news": {
-    "NEWS.md": "2123"
+    "NEWS.md": "6296"
   },
-  "version": 2
+  "version": 6
 }
