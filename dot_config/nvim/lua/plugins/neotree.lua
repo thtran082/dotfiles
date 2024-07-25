@@ -1,20 +1,28 @@
+local Util = require("lazyvim.util")
+
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      "vhyrro/luarocks.nvim",
+      "3rd/image.nvim",
+    },
     opts = {
-      -- event_handlers = {
-      --   {
-      --     event = "file_opened",
-      --     handler = function()
-      --       --auto close
-      --       require("neo-tree.command").execute({ action = "close" })
-      --     end,
-      --   },
-      -- },
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function()
+            --auto close
+            require("neo-tree.command").execute({ action = "close" })
+          end,
+        },
+      },
       filesystem = {
+        filtered_items = {
+          visible = true,
+        },
         window = {
           mappings = {
-            ["<leader>P"] = { "toggle_image_preview", config = { use_float = true } },
             ["Y"] = function(state)
               -- NeoTree is based on [NuiTree](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree)
               -- The node is based on [NuiNode](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree#nuitreenode)
@@ -54,14 +62,6 @@ return {
             end,
           },
         },
-        commands = {
-          toggle_image_preview = function(state)
-            local node = state.tree:get_node()
-            if node.type == "file" then
-              require("image_preview").PreviewImage(node.path)
-            end
-          end,
-        },
       },
     },
     keys = function()
@@ -69,7 +69,7 @@ return {
         {
           "<leader>E",
           function()
-            require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root() })
+            require("neo-tree.command").execute({ toggle = true, dir = Util.root() })
           end,
           desc = "Explorer NeoTree (root dir)",
         },
@@ -79,6 +79,20 @@ return {
             require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
           end,
           desc = "Explorer NeoTree (cwd)",
+        },
+        {
+          "<leader>ge",
+          function()
+            require("neo-tree.command").execute({ source = "git_status", toggle = true })
+          end,
+          desc = "Git explorer",
+        },
+        {
+          "<leader>be",
+          function()
+            require("neo-tree.command").execute({ source = "buffers", toggle = true })
+          end,
+          desc = "Buffer explorer",
         },
       }
     end,

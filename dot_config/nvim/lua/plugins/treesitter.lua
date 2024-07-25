@@ -13,4 +13,7 @@ return {
   },
   { "nvim-treesitter/nvim-treesitter-context", enabled = false },
   { "nvim-treesitter/playground" },
+  {
+    "windwp/nvim-ts-autotag",
+  },
 }

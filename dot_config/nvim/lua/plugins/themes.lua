@@ -6,6 +6,10 @@ local Themes = {
       vim.g.gruvbox_material_better_performance = 1
     end,
   },
+  everforest = {
+    plugins = { "neanias/everforest-nvim" },
+    config = function() end,
+  },
   kanagawa = {
     plugins = { "rebelot/kanagawa.nvim" },
     theme_suffix = "-dragon",
@@ -52,4 +56,4 @@ local function getColorscheme(theme, scheme)
   return config
 end
 
-return getColorscheme("kanagawa", "dark")
+return getColorscheme("everforest", "dark")
