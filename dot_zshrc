@@ -21,7 +21,7 @@ export VOLTA_FEATURE_PNPM=1
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="jreese" # set by `omz`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -116,9 +116,8 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 alias lg="lazygit"
 
-alias v="nvim ."
-alias vim="nvim"
-alias vac="nvim ~/.config/alacritty/alacritty.yml"
+alias v="sudo nvim ."
+alias vac="nvim ~/.config/alacritty/alacritty.toml"
 alias van="cd ~/.config/nvim && v"
 alias c="clear"
 alias e="exit"
@@ -136,9 +135,9 @@ alias ncu="pnpm --package=npm-check-updates dlx ncu --format group"
 alias pnx="pnpm exec"
 alias nx='$PWD/node_modules/.bin/nx'
 
-alias node14="n use 14"
-alias node16="n use 16"
-alias node18="n use 18"
+alias n14="nvm use 14"
+alias n16="nvm use 16"
+alias n18="nvm use 18"
 alias npk="pnpm --package=npkill dlx npkill"
 alias ylrS="yarn local-registry start"
 alias ylrE="yarn local-registry enable"
@@ -152,6 +151,11 @@ alias tconfig="vim ~/.tmux.conf"
 
 alias code="code-insiders"
 alias webstormeap="webstorm1"
+alias ch="code ."
+alias ws="webstorm"
+alias wsh="webstorm ."
+alias doc="cd ~/Documents"
+alias ll="eza -l --icons -a -r -d -T --group-directories-first -L=1"
 
 # list all available simulators
 alias listios="xcrun simctl list devices"
@@ -197,3 +201,14 @@ function make-asset() {
 }
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
