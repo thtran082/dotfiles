@@ -1,0 +1,81 @@
+""" Map leader to space ------------------------------------
+let mapleader=" "
+
+""" Plugins -----------------------------------
+set surround
+
+""" Plugin settings -----------------------------------
+
+""" Common setting -----------------------------------
+set showmode
+set incsearch
+set showcmd
+set number relativenumber
+
+""" Idea specific settings ------------------
+
+""" Mappings -----------------
+" Move lines up and down in visual mode
+xnoremap J :m '>+1<CR>gv=gv
+xnoremap K :m '<-2<CR>gv=gv
+
+" Remap :w and :W to :wa (save all)
+nnoremap :w :wa<CR>
+nnoremap :W :wa<CR>
+
+" Remap :Q to :q (quit)
+nnoremap :Q :q<CR>
+
+" Remap :e and :E to :e! (force edit)
+nnoremap :e :e!<CR>
+nnoremap :E :e!<CR>
+
+" Map :f and :F to Prettier command
+nnoremap :f :Prettier<CR>
+nnoremap :F :Prettier<CR>
+
+" Center scrolling and search results
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Replace selected text without yanking it
+xnoremap <leader>p "_dP
+" Copy to clipboard and delete without yanking
+
+nnoremap <leader>y "+y
+xnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+
+" Replace word under cursor
+nnoremap <leader>ig :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><CR>
+
+" window navigations
+nnoremap <S-l> gt
+nnoremap <S-h> gT
+
+"---------------------------------------------
+" Actions
+map <leader>ghr <Action>(Vcs.RollbackChangedLines)
+map <leader>ghR <Action>(ChangesView.Revert)
+map <leader>bo <Action>(CloseAllEditorsButActive)
+map <leader>bd <Action>(CloseContent)
+map <leader>bP <Action>(closeAllEditors)
+map <leader><space> <Action>(GotoFile)
+map <leader>sS <Action>(GotoSymbol)
+map <leader>/ <Action>(FindInPath)
+map gr <Action>(ShowUsages)
+map <leader>ca <Action>(ShowIntentionActions)
+map <leader>co <Action>(OptimizeImports)
+map <leader>cf <Action>(ReformatCode)
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
+
+" plugins: NGSwitcher
+map <leader>no <Action>(live.angular.actions.SwitchToTemplate);
+map <leader>nu <Action>(live.angular.actions.SwitchToComponent);
+map <leader>ni <Action>(live.angular.actions.SwitchToStyle);
+map <leader>np <Action>(live.angular.actions.SwitchToTest);
