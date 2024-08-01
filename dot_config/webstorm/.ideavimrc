@@ -59,11 +59,16 @@ nnoremap <S-h> gT
 
 "---------------------------------------------
 " Actions
+" # Git version control
 map <leader>ghr <Action>(Vcs.RollbackChangedLines)
 map <leader>ghR <Action>(ChangesView.Revert)
+map <leader>ghb <Action>(VcsShowCurrentChangeMarker)
+
+" # Buffers
 map <leader>bo <Action>(CloseAllEditorsButActive)
 map <leader>bd <Action>(CloseContent)
 map <leader>bP <Action>(closeAllEditors)
+
 map <leader><space> <Action>(GotoFile)
 map <leader>sS <Action>(GotoSymbol)
 map <leader>/ <Action>(FindInPath)
@@ -73,6 +78,7 @@ map <leader>co <Action>(OptimizeImports)
 map <leader>cf <Action>(ReformatCode)
 map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
+map <leader>gg <Action>(LazyGit.Open)
 
 " plugins: NGSwitcher
 map <leader>no <Action>(live.angular.actions.SwitchToTemplate);
