@@ -1,0 +1,341 @@
+{
+  "workbench.startupEditor": "none",
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#6d6c6b80"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.tree.indent": 16,
+  "editor.renderWhitespace": "all",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.wordWrap": "on",
+  "explorer.compactFolders": false,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.wordWrapColumn": 140,
+  "editor.guides.bracketPairs": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.lineHeight": 1.7,
+  "editor.rulers": [120, 140, 180],
+  "[html]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "gitlens.defaultDateLocale": null,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "gitlens.defaultGravatarsStyle": "identicon",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
+  "terminal.external.osxExec": "Warp.app",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Ubuntu (WSL)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": ["-d", "Ubuntu"]
+    }
+  },
+  "cSpell.userWords": [
+    "Accountresource",
+    "Agencycontentparticipantcontroller",
+    "Agencycontentproposalcommentcontroller",
+    "Agencycontentproposalcontroller",
+    "Agencyreviewercontroller",
+    "Apicontroller",
+    "BPWW",
+    "collab",
+    "contenteditable",
+    "Contentsubmissioncontroller",
+    "Ethnicities",
+    "Explorebrandleadcontroller",
+    "fullname",
+    "giphy",
+    "IBPWW",
+    "inputtext",
+    "mediakit",
+    "moodboard",
+    "msgid",
+    "overlaypanel",
+    "panelmenu",
+    "primeng",
+    "Readmore",
+    "rocketchat",
+    "sidenav",
+    "signin",
+    "simplelightbox",
+    "theplug",
+    "thewire",
+    "Typeahead",
+    "unslick",
+    "unsubscription",
+    "Webstorage",
+    "Xocommon",
+    "XOMAD",
+    "xurl"
+  ],
+  "search.showLineNumbers": true,
+  "javascript.format.insertSpaceAfterConstructor": true,
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "typescript.preferences.quoteStyle": "single",
+  "vsicons.dontShowNewVersionMessage": true,
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "git.openRepositoryInParentFolders": "never",
+  "editor.suggest.showStatusBar": true,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "comment",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "html-template.ng.interpolation.begin",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.interpolation.end",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.attributes.animationtrigger.prefix",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "punctuation.definition.ng-binding-name.begin.html",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "punctuation.definition.ng-binding-name.end.html",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.attributes.prefix.ref",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.attributes.prefix.sugar",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.attributes.template.prefix",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.control-flow.prefix",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.tag.colon",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.attributes.colon",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      },
+      {
+        "scope": "html-template.ng.occurrence.dtd",
+        "settings": {
+          "foreground": "#D6D6DD"
+        }
+      }
+    ]
+  },
+  "gitlens.statusBar.alignment": "left",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "files.autoSave": "onFocusChange",
+  "extensions.ignoreRecommendations": true,
+  "gitlens.views.commits.files.icon": "status",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "css.lint.fontFaceProperties": "ignore",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlayHints.enabled": "off",
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "eslint.format.enable": true,
+  "remoteHub.uncommittedChangesOnEntry": "none",
+  "turboConsoleLog.includeFileNameAndLineNum": false,
+  "turboConsoleLog.insertEnclosingClass": false,
+  "turboConsoleLog.logMessagePrefix": "",
+  "turboConsoleLog.delimiterInsideMessage": ">",
+  "turboConsoleLog.addSemicolonInTheEnd": true,
+  "turboConsoleLog.logMessageSuffix": "",
+  "turboConsoleLog.quote": "`",
+  "editor.stickyScroll.enabled": false,
+  "editor.fontFamily": "BlexMono Nerd Font",
+  "terminal.integrated.tabs.enabled": false,
+  "nxConsole.showNodeVersionOnStartup": false,
+  "window.confirmBeforeClose": "keyboardOnly",
+  "explorer.confirmPasteNative": false,
+  "accessibility.signals.lineHasError": {
+    "sound": "off"
+  },
+  "accessibility.signals.noInlayHints": {
+    "sound": "off"
+  },
+  "accessibility.signals.diffLineDeleted": {
+    "sound": "off"
+  },
+  "explorer.confirmDelete": false,
+  "vscode-angular-html.angularAnimationTriggerPrefix": "#D6D6DD",
+  "vscode-angular-html.angularBindingAttributeDelimiter": "#D6D6DD",
+  "vscode-angular-html.angularExpression": "#D6D6DD",
+  "vscode-angular-html.angularPrefixedAttributesRefPrefix": "#D6D6DD",
+  "vscode-angular-html.angularSyntaxSugarAttributesPrefix": "#D6D6DD",
+  "vscode-angular-html.angularTemplateVariablePrefix": "#D6D6DD",
+  "vscode-angular-html.colorCustomizations": true,
+  "vscode-angular-html.dtdDoctypeQuantifier": "#D6D6DD",
+  "vscode-angular-html.xmlAttributeNamespaceDivider": "#D6D6DD",
+  "vscode-angular-html.xmlTagNamespaceDivider": "#D6D6DD",
+  "vscode-angular-html.controlFlowPrefix": "#D6D6DD",
+
+  "vim.leader": "space",
+  "vim.smartRelativeLine": true,
+  "vim.easymotion": true,
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["K"],
+      "after": ["g", "h"]
+    },
+    {
+      "before": ["g", "d"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["leader", "c", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["leader", "space"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["leader", "s", "s"],
+      "commands": ["outline.focus"]
+    },
+    {
+      "before": ["leader", "s", "S"],
+      "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+      "before": ["leader", "n", "u"],
+      "commands": ["extension.switchToComponent"]
+    },
+    {
+      "before": ["leader", "n", "o"],
+      "commands": ["extension.switchToTemplate"]
+    },
+    {
+      "before": ["leader", "n", "i"],
+      "commands": ["extension.switchToStylesheet"]
+    },
+    {
+      "before": ["leader", "n", "p"],
+      "commands": ["extension.switchToSpec"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["leader", "c", "a"],
+      "commands": ["editor.action.codeAction"]
+    },
+    {
+      "before": ["leader", "c", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["leader", "s", "k"],
+      "commands": ["workbench.action.openGlobalKeybindings"]
+    },
+    {
+      "before": ["<leader>", "b", "d"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "b", "o"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-s>"],
+      "commands": [":w"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-k>": false,
+    "<C-s>": false
+  },
+  "vim.surround": true,
+  "editor.formatOnSave": false,
+  "editor.linkedEditing": true,
+  "editor.fontSize": 13,
+  "workbench.colorTheme": "Default Dark Modern"
+}
+
