@@ -29,6 +29,7 @@ cask "messenger"
 cask "raycast"
 cask "slack"
 cask "visual-studio-code-insiders"
+cask "obsidian"
 
 # brew "age"
 # brew "jpeg-xl"

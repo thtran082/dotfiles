@@ -7,23 +7,22 @@ set -e
 echo "Checking Command Line Tools for Xcode"
 # Only run if the tools are not installed yet
 # To check that try to print the SDK path
-xcode-select -p &> /dev/null
+xcode-select -p &>/dev/null
 if [ $? -ne 0 ]; then
-  echo "Command Line Tools for Xcode not found. Installing from softwareupdate…"
-# This temporary file prompts the 'softwareupdate' utility to list the Command Line Tools
-  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
-  PROD=$(softwareupdate -l | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')
-  softwareupdate -i "$PROD" --verbose;
+    echo "Command Line Tools for Xcode not found. Installing from softwareupdate…"
+    # This temporary file prompts the 'softwareupdate' utility to list the Command Line Tools
+    touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+    PROD=$(softwareupdate -l | grep "\*.*Command Line" | tail -n 1 | sed 's/^[^C]* //')
+    softwareupdate -i "$PROD" --verbose
 else
-  echo "Command Line Tools for Xcode have been installed."
+    echo "Command Line Tools for Xcode have been installed."
 fi
 
 # install brew if not existed
-if ! command -v brew >/dev/null; 
-then
+if ! command -v brew >/dev/null; then
     echo "Homebrew is not installed. Installing 'brew'..."
     curl -fsSL \
-        'https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh' >> brew_install.sh
+        'https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh' >>brew_install.sh
     chmod +x brew_install.sh
     ./brew_install.sh
 else
@@ -31,8 +30,7 @@ else
 fi
 
 # remove brew_install if existed
-if [[ -f "brew_install.sh" ]];
-then
+if [[ -f "brew_install.sh" ]]; then
     echo "Removing brew_install.sh..."
     rm -rf brew_install.sh
 else
@@ -41,26 +39,25 @@ fi
 
 # installing packer.nvim
 echo "Installing Packer NVIM..."
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # chezmoi
 echo "Installing chezmoi..."
 brew install chezmoi
 if [ ! -f "$HOME/.config/chezmoi/chezmoi.toml" ]; then
-  echo "Applying chezmoi ..."
-  chezmoi init --apply --verbose https://github.com/yuhnart/dotfiles.git
-  chmod 0600 "$HOME/.config/chezmoi/chezmoi.toml"
+    echo "Applying chezmoi ..."
+    chezmoi init --apply --verbose https://github.com/yuhnart/dotfiles.git
+    chmod 0600 "$HOME/.config/chezmoi/chezmoi.toml"
 fi
 
 # brew apps
 if [ -f "$HOME/Brewfile.local" ]; then
-  echo "Installing tools and apps from Brewfile.local ..."
-  if brew bundle --file="$HOME/Brewfile"; then
-    echo "All items in Brewfile.local were installed successfully."
-  else
-    echo "Some items in Brewfile.local were not installed successfully."
-  fi
+    echo "Installing tools and apps from Brewfile.local ..."
+    if brew bundle --file="$HOME/Brewfile"; then
+        echo "All items in Brewfile.local were installed successfully."
+    else
+        echo "Some items in Brewfile.local were not installed successfully."
+    fi
 fi
 
 # re-source terminal
@@ -81,18 +78,16 @@ corepack prepare yarn@stable --activate
 corepack prepare pnpm@latest --activate
 
 # oh_my_zsh
-if ! command -v ohmyzsh >/dev/null;
-then
+if ! command -v ohmyzsh >/dev/null; then
     echo "Installing Oh My Zsh..."
     curl -fsSL \
-        'https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh' >> ohmyzsh_install.sh
+        'https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh' >>ohmyzsh_install.sh
     chmod +x ohmyzsh_install.sh
     ./ohmyzsh_install.sh "" --unattended --keep-zshrc
 fi
 
 # remove ohmyzsh_install if existed
-if [[ -f "ohmyzsh_install.sh" ]];
-then
+if [[ -f "ohmyzsh_install.sh" ]]; then
     echo "Removing ohmyzsh_install.sh..."
     rm -rf ohmyzsh_install.sh
 else
@@ -109,10 +104,13 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.o
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # webstorm
-cp dot_config/webstorm/.ideavimrc ~ 
+cp dot_config/webstorm/.ideavimrc ~
 
 # karabiner
 cp dot_config/karabiner/karabiner.json ~/.config/karabiner/
 
-# setting.
-# cp dot_config/cursor/setting.json ~/Library/Application Support/Cursor/User/settings.json
+# Vscode setting.
+cp dot_config/cursor/setting.json ~/Library/Application Support/Cursor/User/settings.json
+
+# Automators
+cp -R dot_config/automator ~/Library/Services/
