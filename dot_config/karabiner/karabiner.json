@@ -9,16 +9,16 @@
                 },
                 "rules": [
                     {
-                        "description": "Semicolon to Left Control on hold, Semicolon on tap",
+                        "description": "dot to Left Control on hold, dot on tap",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "semicolon",
+                                    "key_code": "period",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
                                 "to": [{ "key_code": "left_control" }],
-                                "to_if_alone": [{ "key_code": "semicolon" }],
+                                "to_if_alone": [{ "key_code": "period" }],
                                 "type": "basic"
                             }
                         ]
@@ -514,7 +514,8 @@
                 }
             ],
             "name": "Default profile",
-            "selected": true
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }
     ]
 }

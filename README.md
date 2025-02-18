@@ -9,11 +9,22 @@ chmod +x .laptop.local
 zsh .laptop.local
 ```
 
+### What's installed:
+
+- [ ] Cursor settings
+- [ ] Karabiner settings
+- [ ] Webstorm settings
+- [ ] Cursor settings
+- [ ] Automators
+- [ ] nvim config
+- [ ] zsh config
+- [ ] tmux config
+
 ### Things to do
 
 - [ ] Disable Spotlight keyboard shortcut
 - [ ] Disable Open man page keyboard shortcut
 - [ ] Add `code` to favorite directory
-- [x] Setup SSH
-- [x] `xcode-select --install` without prompt
+- [ ] Setup SSH .ssh/config
+- [ ] `xcode-select --install` without prompt
 
