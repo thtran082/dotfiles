@@ -106,6 +106,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # webstorm
 cp dot_config/webstorm/.ideavimrc ~
 
+#cursor
+cp -R dot_config/cursor/ ~/Library/Application Support/Cursor/User/
+
 # karabiner
 cp dot_config/karabiner/karabiner.json ~/.config/karabiner/
 

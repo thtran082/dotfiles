@@ -5,7 +5,7 @@ local themes = {
       config = function()
         require("everforest").setup({
           background = "hard",
-          transparent_background_level = 1,
+          transparent_background_level = 0,
           italics = false,
           disable_italic_comments = false,
           sign_column_background = "none",
@@ -26,7 +26,10 @@ local themes = {
   },
   ayu = {
     plugin = { "shatur/neovim-ayu" },
-    theme_suffix = "-mirage",
+    theme_suffix = "-dark",
+  },
+  gruvbox = {
+    plugin = { "ellisonleao/gruvbox.nvim" },
   },
 }
 
@@ -60,4 +63,4 @@ local function getColorscheme(theme, scheme)
   return config
 end
 
-return getColorscheme("everforest", "dark")
+return getColorscheme("gruvbox", "dark")

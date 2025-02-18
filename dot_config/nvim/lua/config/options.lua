@@ -2,15 +2,15 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 50
+vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "120"
 vim.opt.smartindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.formatoptions:append({ "r" })
+vim.opt.softtabstop = 4
+-- vim.opt.formatoptions:append({ "r" })
 
 local float = { focusable = true, style = "minimal", border = "rounded" }
 
@@ -35,3 +35,4 @@ vim.filetype.add({
 
 vim.treesitter.language.register("markdown", "mdx")
 vim.treesitter.language.register("json", ".all-contributorsrc")
+

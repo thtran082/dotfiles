@@ -11,6 +11,7 @@ set showmode
 set incsearch
 set showcmd
 set number relativenumber
+set clipboard+=unnamed
 
 """ Idea specific settings ------------------
 
@@ -39,6 +40,7 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap N Nzzzv
 
 " Replace selected text without yanking it
 xnoremap <leader>p "_dP
@@ -62,7 +64,7 @@ nnoremap <S-h> gT
 " # Git version control
 map <leader>ghr <Action>(Vcs.RollbackChangedLines)
 map <leader>ghR <Action>(ChangesView.Revert)
-map <leader>ghb <Action>(VcsShowCurrentChangeMarker)
+map <leader>ghp <Action>(VcsShowCurrentChangeMarker)
 
 " # Buffers
 map <leader>bo <Action>(CloseAllEditorsButActive)
@@ -76,12 +78,10 @@ map gr <Action>(ShowUsages)
 map <leader>ca <Action>(ShowIntentionActions)
 map <leader>co <Action>(OptimizeImports)
 map <leader>cf <Action>(ReformatCode)
+map <leader>cr <Action>(RenameElement)
 map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
 map <leader>gg <Action>(LazyGit.Open)
-
+map gcc <Action>(CommentByLineComment)
 " plugins: NGSwitcher
-map <leader>no <Action>(live.angular.actions.SwitchToTemplate);
-map <leader>nu <Action>(live.angular.actions.SwitchToComponent);
-map <leader>ni <Action>(live.angular.actions.SwitchToStyle);
-map <leader>np <Action>(live.angular.actions.SwitchToTest);
+map <leader>nu <Action>(angular.QuickSwitch)
