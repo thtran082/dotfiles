@@ -4,7 +4,7 @@
 
 ```bash
 curl --remote-name https://raw.githubusercontent.com/thtran082/dotfiles/main/dot_laptop.local
-mv executable_dot_laptop.local .laptop.local
+mv dot_laptop.local .laptop.local
 chmod +x .laptop.local
 zsh .laptop.local
 ```
