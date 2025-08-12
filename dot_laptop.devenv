@@ -104,7 +104,8 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.o
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # webstorm
-cp dot_config/webstorm/.ideavimrc ~
+echo "Setting up WebStorm configuration..."
+cp dot_config/webstorm/dot_ideavimrc ~/.ideavimrc
 
 #cursor
 cp -R dot_config/cursor/ ~/Library/Application Support/Cursor/User/
