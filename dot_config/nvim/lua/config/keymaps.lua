@@ -16,9 +16,23 @@ vim.keymap.set("n", ":Q", ":q")
 vim.keymap.set("n", ":e", ":e!")
 vim.keymap.set("n", ":E", ":e!")
 
--- prettier
-vim.keymap.set("n", ":f", vim.cmd.Prettier)
-vim.keymap.set("n", ":F", vim.cmd.Prettier)
+-- format current buffer via conform (prettierd/prettier) -- replaces :Prettier
+local function format_buffer()
+  require("conform").format({ async = true, lsp_format = "fallback" })
+end
+vim.keymap.set("n", ":f", format_buffer)
+vim.keymap.set("n", ":F", format_buffer)
+
+-- macOS: reveal / open / preview the current file
+vim.keymap.set("n", "<leader>oo", function()
+  vim.system({ "open", "-R", vim.fn.expand("%:p") })
+end, { desc = "Reveal in Finder" })
+vim.keymap.set("n", "<leader>oO", function()
+  vim.system({ "open", vim.fn.getcwd() })
+end, { desc = "Open cwd in Finder" })
+vim.keymap.set("n", "<leader>oq", function()
+  vim.system({ "qlmanage", "-p", vim.fn.expand("%:p") })
+end, { desc = "Quick Look preview" })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")

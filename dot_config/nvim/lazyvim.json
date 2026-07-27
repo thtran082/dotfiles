@@ -1,9 +1,10 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.lang.angular"
+    "lazyvim.plugins.extras.lang.angular",
+    "lazyvim.plugins.extras.lang.markdown"
   ],
   "news": {
-    "NEWS.md": "6296"
+    "NEWS.md": "11866"
   },
-  "version": 6
+  "version": 8
 }

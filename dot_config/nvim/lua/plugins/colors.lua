@@ -1,4 +1,22 @@
 local themes = {
+  cyberdream = {
+    plugin = {
+      "scottmckendry/cyberdream.nvim",
+      config = function()
+        require("cyberdream").setup({
+          transparent = false,
+          italic_comments = false,
+          hide_fillchars = false,
+          borderless_pickers = false,
+          terminal_colors = true,
+          cache = false,
+          theme = {
+            variant = "default", -- use "auto" to follow vim.o.background
+          },
+        })
+      end,
+    },
+  },
   everforest = {
     plugin = {
       "neanias/everforest-nvim",
@@ -31,11 +49,30 @@ local themes = {
   gruvbox = {
     plugin = { "ellisonleao/gruvbox.nvim" },
   },
+  nightfox = {
+    plugin = {
+      "EdenEast/nightfox.nvim",
+      config = function()
+        require("nightfox").setup({
+          options = {
+            transparent = false,
+            terminal_colors = true,
+            dim_inactive = false,
+            styles = {
+              comments = "italic",
+              keywords = "bold",
+              types = "italic,bold",
+            },
+          },
+        })
+      end,
+    },
+  },
 }
 
 local function getColorscheme(theme, scheme)
   local config = {}
-  local default_theme = "tokyonight-moon" -- define your default theme here
+  local default_theme = "cyberdream" -- define your default theme here
   local default_scheme = "dark" -- define your default scheme here
 
   theme = theme or default_theme
@@ -63,4 +100,4 @@ local function getColorscheme(theme, scheme)
   return config
 end
 
-return getColorscheme("gruvbox", "dark")
+return getColorscheme("cyberdream", "dark")

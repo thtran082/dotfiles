@@ -3,26 +3,20 @@ local Util = require("lazyvim.util")
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "vhyrro/luarocks.nvim",
-      "3rd/image.nvim",
-    },
+    -- Image previews are provided by snacks.image (see ui-media.lua); no
+    -- luarocks/3rd-image.nvim dependency needed.
     opts = {
-      event_handlers = {
-        {
-          event = "file_opened",
-          handler = function()
-            --auto close
-            require("neo-tree.command").execute({ action = "close" })
-          end,
-        },
-      },
       filesystem = {
         filtered_items = {
           visible = true,
         },
         window = {
           mappings = {
+            -- Reveal the selected node in macOS Finder.
+            ["O"] = function(state)
+              local node = state.tree:get_node()
+              vim.system({ "open", "-R", node:get_id() })
+            end,
             ["Y"] = function(state)
               -- NeoTree is based on [NuiTree](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree)
               -- The node is based on [NuiNode](https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/tree#nuitreenode)

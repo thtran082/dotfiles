@@ -35,4 +35,3 @@ vim.filetype.add({
 
 vim.treesitter.language.register("markdown", "mdx")
 vim.treesitter.language.register("json", ".all-contributorsrc")
-

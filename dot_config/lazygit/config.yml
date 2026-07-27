@@ -1,0 +1,8 @@
+git:
+  pagers:
+    - pager: delta --dark --paging=never
+      colorArg: never
+    - externalDiffCommand: difft --color=always
+  overridGpg: true # similar idea — bypasses interactive prompts
+os:
+  editCommand: ""

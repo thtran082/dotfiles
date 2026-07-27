@@ -1,3 +1,18 @@
-return {
-  { "elgiano/nvim-treesitter-angular", branch = "topic/jsx-fix" },
-}
+-- Intentionally empty.
+--
+-- On Neovim 0.11+ (vim.lsp.config model) the angularls config shipped by
+-- nvim-lspconfig (`lsp/angularls.lua`) is already NX-aware and correct:
+--   * root_markers = { "angular.json", "nx.json" }  -> works in NX monorepos
+--   * cmd is a function that probes the project node_modules *and* mason's
+--     angular-language-server install, sets the proper --ngProbeLocations and
+--     --angularCoreVersion, and recomputes per root_dir.
+--   * filetypes include "html" (which is what *.component.html resolves to),
+--     so template intellisense (component members, selectors, bindings) works.
+--
+-- Overriding `cmd`/`root_dir`/`on_new_config` here previously BROKE `.html`
+-- template support (static cmd dropped --angularCoreVersion and used the wrong
+-- probe path; on_new_config is ignored in the new LSP model). Let upstream own
+-- it. The LazyVim `lang.angular` extra already disables angularls' duplicate
+-- rename. Add overrides here only if a future need is verified against the
+-- installed `lsp/angularls.lua`.
+return {}

@@ -1,0 +1,27 @@
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+[core]
+	pager = delta
+	editor = nvim
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[log]
+	showSignature = true
+[url "https://"]
+	insteadOf = git://
+[user]
+	signingkey = EFD428B6
+	name = Huy Tran
+	email = thtran.082@gmail.com
+[rerere]
+	enabled = true
+	autoupdate = true

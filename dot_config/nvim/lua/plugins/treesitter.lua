@@ -8,6 +8,19 @@ return {
         "typescript",
         "html",
         "yaml",
+        "angular",
+        "scss",
+        "css",
+      })
+
+      -- Angular component templates are plain `.html` files; force the angular
+      -- parser for them so template syntax (bindings, control flow) highlights
+      -- and injects correctly.
+      vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+        pattern = { "*.component.html", "*.container.html" },
+        callback = function()
+          pcall(vim.treesitter.start, nil, "angular")
+        end,
       })
     end,
   },
