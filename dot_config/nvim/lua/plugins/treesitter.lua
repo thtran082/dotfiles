@@ -9,6 +9,7 @@ return {
         "html",
         "yaml",
         "angular",
+        "html_tags",
         "scss",
         "css",
       })

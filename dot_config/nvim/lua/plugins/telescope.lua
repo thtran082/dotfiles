@@ -15,7 +15,7 @@ return {
         },
         layout_config = {
           width = 0.8,
-          horizontal = {
+          vertical = {
             preview_width = 0.9,
           },
         },

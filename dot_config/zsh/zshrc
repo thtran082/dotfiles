@@ -171,6 +171,14 @@ alias sandbox="cd ~/code/sandbox"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
+function gdh() {
+  git diff HEAD "$@"
+}
+
+function gdhs() {
+  git diff HEAD "$@" --stat
+}
+
 function make-asset() {
     # check if an argument was provided
     if [[ $# -eq 0 ]]; then
@@ -252,3 +260,4 @@ if [ -f '/Users/yuhnart/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yuhnart
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yuhnart/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yuhnart/google-cloud-sdk/completion.zsh.inc'; fi
 
+# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
